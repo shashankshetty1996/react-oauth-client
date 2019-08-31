@@ -3,15 +3,37 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "axios": "^0.19.0",
+    "classnames": "^2.2.6",
+    "prop-types": "^15.7.2",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
-    "react-scripts": "3.1.1"
+    "react-loadable": "^5.5.0",
+    "react-redux": "^7.1.1",
+    "react-scripts": "3.1.1",
+    "redux": "^4.0.4",
+    "redux-saga": "^1.0.5"
+  },
+  "lint-staged": {
+    "unstaged": "true",
+    "src/**/*.{js,jsx,json,css,md}": [
+      "eslint --fix src",
+      "prettier",
+      "npm run stylelint -- src/*/**/*.scss --fix",
+      "git add"
+    ]
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "lint": "eslint --fix src/",
+    "storybook": "start-storybook -p 9001 -c .storybook",
+    "stylelint": "stylelint src/**/*.scss --fix",
+    "styleguide": "styleguidist server",
+    "styleguide:build": "styleguidist build",
+    "precommit": "lint-staged"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -27,5 +49,33 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@babel/core": "^7.4.5",
+    "@storybook/addon-knobs": "^5.1.8",
+    "@storybook/addon-storyshots": "^5.1.8",
+    "@storybook/cli": "^5.1.8",
+    "@storybook/react": "^5.1.8",
+    "babel-eslint": "^10.0.2",
+    "babel-loader": "^8.0.6",
+    "enzyme": "^3.10.0",
+    "enzyme-adapter-react-16": "^1.14.0",
+    "eslint": "^5.16.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-config-prettier": "^5.0.0",
+    "eslint-config-react-app": "^4.0.1",
+    "eslint-plugin-flowtype": "^4.2.0",
+    "eslint-plugin-import": "^2.17.3",
+    "eslint-plugin-jsx-a11y": "^6.2.1",
+    "eslint-plugin-prettier": "^3.1.0",
+    "eslint-plugin-react": "^7.13.0",
+    "eslint-plugin-react-hooks": "^2.0.1",
+    "husky": "^2.4.1",
+    "lint-staged": "^8.2.1",
+    "node-sass": "^4.12.0",
+    "prettier": "^1.18.2",
+    "storybook-addon-jsx": "^7.1.2",
+    "stylelint": "^10.1.0",
+    "stylelint-prettier": "^1.1.1"
   }
 }
