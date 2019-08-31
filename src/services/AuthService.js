@@ -1,4 +1,4 @@
-import { adminSession } from 'constants.js';
+import { adminSession } from '../constants.js';
 import { setCookie, getCookie, deleteCookie } from '../utils/CookieFunc';
 
 const setSession = (data, cookieName = adminSession) => {
