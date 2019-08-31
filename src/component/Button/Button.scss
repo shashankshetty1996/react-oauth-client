@@ -1,0 +1,14 @@
+@import '../../style/variables';
+
+.btn {
+  background-color: $white;
+  border: 1px solid $blue;
+  color: $blue;
+  cursor: pointer;
+  font: {
+    size: 12px;
+    weight: 100;
+  }
+  padding: 24px 16px;
+  outline: none;
+}
