@@ -1,6 +1,11 @@
 // common file
 .container {
+  align-items: center;
   box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   margin: 0 auto;
+  min-height: 100vh;
   width: 80%;
 }
