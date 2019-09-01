@@ -4,13 +4,13 @@ import PropTypes from 'prop-types';
 
 import { isUserLoggedIn } from '../services/AuthService';
 
-import { adminSession } from '../constants';
+import { userSession } from '../constants';
 
 const MainLayoutRoute = ({ component: Component, ...rest }) => {
   /**
    * Check if user is logged in already, else redirect to login page.
    */
-  if (!isUserLoggedIn(adminSession)) {
+  if (!isUserLoggedIn(userSession)) {
     return <Redirect to="/login" />;
   }
 

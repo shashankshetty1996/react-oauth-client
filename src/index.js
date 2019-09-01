@@ -8,7 +8,7 @@ import App from './App';
 import store from './store';
 
 import AxiosWrapper from './utils/AxiosWrapper';
-import { adminSession } from './constants';
+import { userSession } from './constants';
 
 const AppTemplate = (
   <Provider store={store}>
@@ -17,4 +17,4 @@ const AppTemplate = (
 );
 
 ReactDOM.render(AppTemplate, document.getElementById('root'));
-window.axios = new AxiosWrapper(adminSession);
+window.axios = new AxiosWrapper(userSession);

@@ -1,4 +1,4 @@
-export const adminSession = 'matic-session';
+export const userSession = 'matic-session';
 
 export const LOGIN = {
   TITLE: 'Welcome to the Game of Theories',

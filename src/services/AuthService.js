@@ -1,11 +1,11 @@
-import { adminSession } from '../constants.js';
+import { userSession } from '../constants.js';
 import { setCookie, getCookie, deleteCookie } from '../utils/CookieFunc';
 
-const setSession = (data, cookieName = adminSession) => {
+const setSession = (data, cookieName = userSession) => {
   setCookie(cookieName, JSON.stringify(data), 24 * 60 * 60); // store token for 30 days
 };
 
-const getSession = (cookieName = adminSession) => {
+const getSession = (cookieName = userSession) => {
   let sessionData;
   try {
     sessionData = JSON.parse(getCookie(cookieName)) || {};
@@ -16,7 +16,7 @@ const getSession = (cookieName = adminSession) => {
   return sessionData;
 };
 
-const deleteSession = (cookieName = adminSession) => {
+const deleteSession = (cookieName = userSession) => {
   deleteCookie(cookieName);
 };
 
@@ -25,7 +25,7 @@ const redirectToLogin = () => {
   window.location.assign(`/${urlParts[1]}`);
 };
 
-const isUserLoggedIn = (cookieName = adminSession) => {
+const isUserLoggedIn = (cookieName = userSession) => {
   const { accessToken } = getSession(cookieName);
   if (accessToken) {
     return true;
@@ -33,7 +33,7 @@ const isUserLoggedIn = (cookieName = adminSession) => {
   return false;
 };
 
-const logout = (cookieName = adminSession) => {
+const logout = (cookieName = userSession) => {
   deleteSession(cookieName);
   redirectToLogin();
 };
