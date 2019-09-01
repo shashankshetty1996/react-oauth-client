@@ -12,6 +12,8 @@ import {
   accessTokenFailureAction,
 } from '../../../store/actions/Auth.action';
 
+import './AuthCallback.scss';
+
 const AuthCallback = props => {
   const { history, location, accessTokenSuccess, accessTokenFailure } = props;
 
