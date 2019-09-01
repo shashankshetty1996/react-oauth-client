@@ -13,6 +13,11 @@ const AsyncLogin = Loadable({
   loading: LoaderComponent,
 });
 
+const AsyncAuthCallback = Loadable({
+  loader: () => import('./containers/Login/AuthCallback/AuthCallback'),
+  loading: LoaderComponent,
+});
+
 const AsyncHome = Loadable({
   loader: () => import('./containers/Home/Home'),
   loading: LoaderComponent,
@@ -23,6 +28,8 @@ const router = () => {
     <BrowserRouter>
       <Switch>
         <Route path="/login" component={AsyncLogin} />
+        <Route path="/authcallback" component={AsyncAuthCallback} />
+
         <MainLayout path="/" component={AsyncHome} />
 
         <Redirect to="/" />

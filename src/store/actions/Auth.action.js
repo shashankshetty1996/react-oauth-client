@@ -1,8 +1,9 @@
 import ACTIONS from '../actionTypes';
 
-const accessTokenAction = () => {
+const accessTokenAction = data => {
   return {
-    type: ACTIONS.AUTH.GET_ACCESS_TOKEN,
+    type: ACTIONS.AUTH.GET_ACCESS_TOKEN_SUCCESS,
+    data,
   };
 };
 
