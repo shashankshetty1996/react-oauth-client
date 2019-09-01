@@ -1,8 +1,8 @@
 import { userSession } from '../constants.js';
 import { setCookie, getCookie, deleteCookie } from '../utils/CookieFunc';
 
-const setSession = (data, cookieName = userSession) => {
-  setCookie(cookieName, JSON.stringify(data), 24 * 60 * 60); // store token for 30 days
+const setSession = (data, cookieName = userSession, sessionTime = 1) => {
+  setCookie(cookieName, JSON.stringify(data), sessionTime);
 };
 
 const getSession = (cookieName = userSession) => {

@@ -1,8 +1,8 @@
-const setCookie = (name, value, days) => {
+const setCookie = (name, value, min) => {
   let expires = '';
-  if (days) {
+  if (min) {
     const date = new Date();
-    date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
+    date.setTime(date.getTime() + min * 60 * 1000);
     expires = `; expires=${date.toUTCString()}`;
   }
   document.cookie = `${name}=${value || ''}${expires}; path=/`;
