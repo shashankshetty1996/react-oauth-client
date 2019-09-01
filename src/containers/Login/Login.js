@@ -1,4 +1,5 @@
-import React from 'react';
+/* eslint-disable react-hooks/exhaustive-deps */
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
 
@@ -6,10 +7,16 @@ import { Button } from '../../component';
 
 import { LOGIN } from '../../constants';
 import { openPopupInCenter } from '../../utils/utils';
+import { getLoginUrl } from '../../API/endPoint';
 
 const Login = props => {
   const { history } = props;
   const { TITLE, SIGN_IN, SUCCESS_MESSAGE } = LOGIN;
+
+  useEffect(() => {
+    // unregister event
+    return () => unregisterMessageEventListener();
+  }, []);
 
   const loginEventListener = event => {
     const origin = `${window.location.protocol}//${window.location.host}`;
@@ -23,7 +30,8 @@ const Login = props => {
 
   const openLoginPopup = () => {
     registerMessageEventListener();
-    openPopupInCenter('https://google.com');
+    const loginURI = getLoginUrl();
+    openPopupInCenter(loginURI);
   };
 
   const registerMessageEventListener = () => {

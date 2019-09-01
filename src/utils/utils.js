@@ -15,7 +15,7 @@ const constructQueryParams = data => {
   return ret.join('&');
 };
 
-const openPopupInCenter = (url, title = '', width = 480, height = 440) => {
+const openPopupInCenter = (url, title = '', width = 600, height = 480) => {
   const left = window.screen.width / 2 - width / 2;
   const top = window.screen.height / 2 - height / 2;
   return window.open(
