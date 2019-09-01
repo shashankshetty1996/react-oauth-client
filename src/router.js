@@ -4,6 +4,8 @@ import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 
 import { Loader } from './component';
 
+import MainLayout from './layout/MainLayoutRoute';
+
 const LoaderComponent = () => <Loader />;
 
 const AsyncLogin = Loadable({
@@ -21,7 +23,7 @@ const router = () => {
     <BrowserRouter>
       <Switch>
         <Route path="/login" component={AsyncLogin} />
-        <Route path="/" component={AsyncHome} />
+        <MainLayout path="/" component={AsyncHome} />
 
         <Redirect to="/" />
       </Switch>
