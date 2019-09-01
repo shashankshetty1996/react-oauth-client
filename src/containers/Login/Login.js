@@ -9,6 +9,8 @@ import { LOGIN } from '../../constants';
 import { openPopupInCenter } from '../../utils/utils';
 import { getLoginUrl } from '../../API/endPoint';
 
+import './Login.scss';
+
 const Login = props => {
   const { history } = props;
   const { TITLE, SIGN_IN, SUCCESS_MESSAGE } = LOGIN;
@@ -43,7 +45,7 @@ const Login = props => {
   };
 
   return (
-    <div className="login">
+    <div className="login container">
       <h1 className="title">{TITLE}</h1>
       <Button onClick={openLoginPopup}>{SIGN_IN}</Button>
     </div>

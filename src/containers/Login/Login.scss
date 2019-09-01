@@ -1,0 +1,15 @@
+.login {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  min-height: 100vh;
+
+  .title {
+    font: {
+      size: 36px;
+      weight: 600;
+    }
+    margin-bottom: 48px;
+  }
+}
