@@ -1,10 +1,12 @@
 import ACTIONS from '../actionTypes';
 
-const accessTokenAction = data => {
-  return {
-    type: ACTIONS.AUTH.GET_ACCESS_TOKEN_SUCCESS,
-    data,
-  };
-};
+const accessTokenSuccessAction = data => ({
+  type: ACTIONS.AUTH.GET_ACCESS_TOKEN_SUCCESS,
+  data,
+});
 
-export { accessTokenAction };
+const accessTokenFailureAction = () => ({
+  type: ACTIONS.AUTH.GET_ACCESS_TOKEN_FAIL,
+});
+
+export { accessTokenSuccessAction, accessTokenFailureAction };

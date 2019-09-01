@@ -4,16 +4,22 @@ import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 
+import { Loader } from '../../../component';
+
 import { LOGIN } from '../../../constants';
-import { accessTokenAction } from '../../../store/actions/Auth.action';
+import {
+  accessTokenSuccessAction,
+  accessTokenFailureAction,
+} from '../../../store/actions/Auth.action';
 
 const AuthCallback = props => {
-  const { history, location, accessTokenSuccess } = props;
+  const { history, location, accessTokenSuccess, accessTokenFailure } = props;
 
   useEffect(() => {
     const authResponse = getParamsInHash();
 
     if (authResponse.accessToken) handleLoginSuccess(authResponse);
+    else accessTokenFailure();
   }, []);
 
   const handleLoginSuccess = authResponse => {
@@ -41,17 +47,24 @@ const AuthCallback = props => {
       }, {});
   };
 
-  return <div>This is what you are going to see man</div>;
+  return (
+    <section className="container">
+      <h1 className="loading-text">Checking...</h1>
+      <Loader />
+    </section>
+  );
 };
 
 AuthCallback.propTypes = {
   history: PropTypes.object.isRequired,
   location: PropTypes.object.isRequired,
   accessTokenSuccess: PropTypes.func.isRequired,
+  accessTokenFailure: PropTypes.func.isRequired,
 };
 
 const mapDispatchToProps = dispatch => ({
-  accessTokenSuccess: data => dispatch(accessTokenAction(data)),
+  accessTokenSuccess: data => dispatch(accessTokenSuccessAction(data)),
+  accessTokenFailure: () => dispatch(accessTokenFailureAction()),
 });
 
 export default withRouter(
